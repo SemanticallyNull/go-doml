@@ -1,11 +1,12 @@
 
 //line doml.rl:1
+// Package doml is a parser for the DOML's Obnoxious Micro Language
 package doml
 
 import "fmt"
 
 
-//line doml.go:9
+//line doml.go:10
 const doml_start int = 1
 const doml_first_final int = 46
 const doml_error int = 0
@@ -13,9 +14,10 @@ const doml_error int = 0
 const doml_en_main int = 1
 
 
-//line doml.rl:8
+//line doml.rl:9
 
 
+// Parse takes a string and returns a map[string]any with the values from it
 func Parse(data string) (map[string]any, error) {
   cs, p, pe := 0, 0, len(data)
   val := make(map[string]any, 0)
@@ -23,12 +25,12 @@ func Parse(data string) (map[string]any, error) {
   currentArr := make([]string, 0)
 
   
-//line doml.go:27
+//line doml.go:29
 	{
 	cs = doml_start
 	}
 
-//line doml.go:32
+//line doml.go:34
 	{
 	if p == pe {
 		goto _test_eof
@@ -177,11 +179,11 @@ st_case_0:
 		}
 		goto st0
 tr28:
-//line doml.rl:26
+//line doml.rl:28
  val[key] = currentArr; currentArr = make([]string, 0) 
 	goto st5
 tr50:
-//line doml.rl:24
+//line doml.rl:26
  val[key] = current; current = "" 
 	goto st5
 	st5:
@@ -189,7 +191,7 @@ tr50:
 			goto _test_eof5
 		}
 	st_case_5:
-//line doml.go:193
+//line doml.go:195
 		switch data[p] {
 		case 32:
 			goto st5
@@ -248,7 +250,7 @@ tr50:
 		}
 		goto st0
 tr13:
-//line doml.rl:22
+//line doml.rl:24
  current = current + string(data[p]) 
 	goto st11
 	st11:
@@ -256,7 +258,7 @@ tr13:
 			goto _test_eof11
 		}
 	st_case_11:
-//line doml.go:260
+//line doml.go:262
 		switch data[p] {
 		case 32:
 			goto st0
@@ -341,7 +343,7 @@ tr13:
 		}
 		goto st0
 tr19:
-//line doml.rl:23
+//line doml.rl:25
  key = current; current = "" 
 	goto st17
 	st17:
@@ -349,7 +351,7 @@ tr19:
 			goto _test_eof17
 		}
 	st_case_17:
-//line doml.go:353
+//line doml.go:355
 		switch data[p] {
 		case 32:
 			goto st17
@@ -382,7 +384,7 @@ tr19:
 		}
 		goto st0
 tr39:
-//line doml.rl:25
+//line doml.rl:27
  currentArr = append(currentArr, current); current = "" 
 	goto st20
 	st20:
@@ -390,7 +392,7 @@ tr39:
 			goto _test_eof20
 		}
 	st_case_20:
-//line doml.go:394
+//line doml.go:396
 		switch data[p] {
 		case 32:
 			goto st20
@@ -459,7 +461,7 @@ tr39:
 		}
 		goto st0
 tr33:
-//line doml.rl:22
+//line doml.rl:24
  current = current + string(data[p]) 
 	goto st27
 	st27:
@@ -467,7 +469,7 @@ tr33:
 			goto _test_eof27
 		}
 	st_case_27:
-//line doml.go:471
+//line doml.go:473
 		switch data[p] {
 		case 32:
 			goto st0
@@ -588,7 +590,7 @@ tr33:
 		}
 		goto st0
 tr44:
-//line doml.rl:22
+//line doml.rl:24
  current = current + string(data[p]) 
 	goto st37
 	st37:
@@ -596,7 +598,7 @@ tr44:
 			goto _test_eof37
 		}
 	st_case_37:
-//line doml.go:600
+//line doml.go:602
 		switch data[p] {
 		case 32:
 			goto st0
@@ -771,7 +773,7 @@ tr44:
 	_out: {}
 	}
 
-//line doml.rl:36
+//line doml.rl:38
 
 
   if cs < doml_first_final {

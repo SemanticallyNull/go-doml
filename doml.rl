@@ -1,3 +1,4 @@
+// Package doml is a parser for the DOML's Obnoxious Micro Language
 package doml
 
 import "fmt"
@@ -7,6 +8,7 @@ import "fmt"
 	write data;
 }%%
 
+// Parse takes a string and returns a map[string]any with the values from it
 func Parse(data string) (map[string]any, error) {
   cs, p, pe := 0, 0, len(data)
   val := make(map[string]any, 0)
